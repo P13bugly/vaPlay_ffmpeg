@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{18cc2ccd-11e8-486a-964a-79089767b800}</ProjectGuid>
+    <RootNamespace>vaPlayffmpeg</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared" >
+  </ImportGroup>
+    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    </ImportGroup>
+    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    </ImportGroup>
+    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    </ImportGroup>
+    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    </ImportGroup>
+
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <FFmpegRoot>D:\develop\vs2026\code\ffmpeg-master-latest-win64-gpl-shared</FFmpegRoot>
+    <SDLRoot>D:\develop\vs2026\code\SDL3-3.4.2</SDLRoot>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(FFmpegRoot)\include;$(SDLRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avformat-62.dll" copy /Y "$(FFmpegRoot)\bin\avformat-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avutil-60.dll" copy /Y "$(FFmpegRoot)\bin\avutil-60.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swresample-6.dll" copy /Y "$(FFmpegRoot)\bin\swresample-6.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swscale-9.dll" copy /Y "$(FFmpegRoot)\bin\swscale-9.dll" "$(OutDir)"
+if exist "$(SDLRoot)\lib\x86\SDL3.dll" copy /Y "$(SDLRoot)\lib\x86\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(FFmpegRoot)\include;$(SDLRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avformat-62.dll" copy /Y "$(FFmpegRoot)\bin\avformat-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avutil-60.dll" copy /Y "$(FFmpegRoot)\bin\avutil-60.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swresample-6.dll" copy /Y "$(FFmpegRoot)\bin\swresample-6.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swscale-9.dll" copy /Y "$(FFmpegRoot)\bin\swscale-9.dll" "$(OutDir)"
+if exist "$(SDLRoot)\lib\x86\SDL3.dll" copy /Y "$(SDLRoot)\lib\x86\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(FFmpegRoot)\include;$(SDLRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avformat-62.dll" copy /Y "$(FFmpegRoot)\bin\avformat-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avutil-60.dll" copy /Y "$(FFmpegRoot)\bin\avutil-60.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swresample-6.dll" copy /Y "$(FFmpegRoot)\bin\swresample-6.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swscale-9.dll" copy /Y "$(FFmpegRoot)\bin\swscale-9.dll" "$(OutDir)"
+if exist "$(SDLRoot)\lib\x64\SDL3.dll" copy /Y "$(SDLRoot)\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(FFmpegRoot)\include;$(SDLRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avformat-62.dll" copy /Y "$(FFmpegRoot)\bin\avformat-62.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\avutil-60.dll" copy /Y "$(FFmpegRoot)\bin\avutil-60.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swresample-6.dll" copy /Y "$(FFmpegRoot)\bin\swresample-6.dll" "$(OutDir)"
+if exist "$(FFmpegRoot)\bin\swscale-9.dll" copy /Y "$(FFmpegRoot)\bin\swscale-9.dll" "$(OutDir)"
+if exist "$(SDLRoot)\lib\x64\SDL3.dll" copy /Y "$(SDLRoot)\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClInclude Include="encode_pcm_to_mp2.h" />
+    <ClInclude Include="encode_yuv_to_h264.h" />
+    <ClInclude Include="output_log.h" />
+    <ClInclude Include="vPlayer_sdl2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="encode_pcm_to_mp2.cpp" />
+    <ClCompile Include="encode_yuv_to_h264.cpp" />
+    <ClCompile Include="output_log.cpp" />
+    <ClCompile Include="vaPlayer_ffmpeg.cpp" />
+    <ClCompile Include="vPlayer_sdl2.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

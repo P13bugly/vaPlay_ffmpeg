@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="vaPlay_ffmpeg/vaPlay_ffmpeg.vcxproj" Id="18cc2ccd-11e8-486a-964a-79089767b800" />
+</Solution>

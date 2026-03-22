@@ -92,7 +92,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;swresample.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
@@ -119,7 +119,7 @@ if exist "$(SDLRoot)\lib\x86\SDL3.dll" copy /Y "$(SDLRoot)\lib\x86\SDL3.dll" "$(
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;swresample.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
@@ -144,7 +144,7 @@ if exist "$(SDLRoot)\lib\x86\SDL3.dll" copy /Y "$(SDLRoot)\lib\x86\SDL3.dll" "$(
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;swresample.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
@@ -171,7 +171,7 @@ if exist "$(SDLRoot)\lib\x64\SDL3.dll" copy /Y "$(SDLRoot)\lib\x64\SDL3.dll" "$(
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(FFmpegRoot)\lib;$(SDLRoot)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avformat.lib;avutil.lib;swscale.lib;swresample.lib;SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if exist "$(FFmpegRoot)\bin\avcodec-62.dll" copy /Y "$(FFmpegRoot)\bin\avcodec-62.dll" "$(OutDir)"
